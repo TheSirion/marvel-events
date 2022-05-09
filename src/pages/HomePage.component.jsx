@@ -1,11 +1,10 @@
-import React, { useEffect, useState } from "react";
-import EventCard from "./components/EventCard.component";
-import Footer from "./components/Footer.component";
-import Header from "./components/Header.component";
-import "./index.css";
-import { fetchEvents } from "./utils/APIs/MarvelApi";
+import React, { useEffect, useState } from 'react';
+import EventCard from '../components/EventCard.component';
+import Footer from "../components/Footer.component";
+import Header from "../components/Header.component";
+import { fetchEvents } from "../utils/API/MarvelApi";
 
-const App = () => {
+const HomePage = () => {
   const [events, setEvents] = useState([]);
 
   const fetchEventsData = async () => {
@@ -36,7 +35,7 @@ const App = () => {
   }, []);
 
   return (
-    <>
+    <div>
       <Header />
       <main className='max-w-5xl mx-auto'>
         <div className='flex flex-row flex-wrap justify-center gap-3'>
@@ -44,8 +43,8 @@ const App = () => {
         </div>
       </main>
       <Footer />
-    </>
+    </div>
   );
-};
+}
 
-export default App;
+export default HomePage;
