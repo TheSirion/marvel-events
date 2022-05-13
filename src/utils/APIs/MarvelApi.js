@@ -18,8 +18,17 @@ const fetchEvent = eventName => {
 const fetchEvents = () => {
   const data = fetch(`${ApiUrl}events?orderBy=startDate&limit=100&${ApiKey}`)
     .then(response => response.json())
-    .then(data => data.data.results);
+    .then(eventsList => eventsList.data.results);
   return data;
 };
+
+const fetchSeries = seriesId => {
+  const data = fetch(`${ApiUrl}series?id=${seriesId}&${ApiKey}`)
+    .then(response => response.json())
+    .then(data => data.data.results[0]);
+  return data;
+};
+
+fetchSeries(29061);
 
 export { fetchCharacter, fetchEvent, fetchEvents };
